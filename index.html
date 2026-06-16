@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Học Ngữ Pháp Tiếng Anh: Present, Past & Future Tenses</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="light-mode">
+    <div class="app-container">
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="sidebar">
+        <div class="logo-area">
+          <div class="logo-icon">🇬🇧</div>
+          <div class="logo-text">
+            <h1>Ngữ Pháp Anh</h1>
+          </div>
+        </div>
+
+        <!-- PROGRESS TRACKER -->
+        <div class="progress-tracker">
+          <div class="progress-label">
+            <span>Tiến độ hoàn thành</span>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              id="progress-fill-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="progress-details" id="progress-text-summary">
+            Chưa hoàn thành bài nào
+          </div>
+        </div>
+
+        <!-- UNIT SELECTOR -->
+        <div class="unit-selector-container">
+          <label for="unit-select">Chủ đề học</label>
+          <select id="unit-select" class="unit-select">
+            <!-- Dynamic Unit options -->
+          </select>
+        </div>
+
+        <!-- NAVIGATION MENU -->
+        <nav class="nav-menu" id="nav-menu-container">
+          <!-- Will be populated dynamically by JS -->
+        </nav>
+
+        <!-- SIDEBAR FOOTER -->
+        <div class="sidebar-footer">
+          <button class="theme-toggle-btn" id="btn-theme-toggle">
+            <span class="icon">🌓</span> <span id="theme-text">Chế độ tối</span>
+          </button>
+          <button class="reset-btn" id="btn-reset-progress">
+            <span class="icon">🔄</span> Xóa tiến độ học
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <main class="main-content">
+        <!-- SCREEN 1: LESSON VIEW -->
+        <section id="screen-lesson" class="app-screen active">
+          <div class="screen-header">
+            <div class="header-path" id="lesson-chapter-title">
+              Chương 1 / Bài 1
+            </div>
+            <h2 id="lesson-title">
+              Bài 1: Động từ To Be ở hiện tại đơn (am/is/are)
+            </h2>
+          </div>
+
+          <div class="scroll-container">
+            <div class="lesson-layout">
+              <div class="lesson-primary">
+                <!-- RULE EXPLANATION -->
+                <div class="content-card">
+                  <h3>📖 Quy tắc ngữ pháp</h3>
+                  <div id="lesson-explanation" class="rich-text">
+                    <!-- Dynamic content -->
+                  </div>
+                </div>
+
+                <!-- SENTENCE COMPONENT ANALYSIS -->
+                <div class="content-card">
+                  <h3>🔍 Phân tích thành phần câu</h3>
+                  <p class="section-hint">
+                    Hover vào các thành phần câu để xem vai trò cú pháp tương
+                    ứng.
+                  </p>
+                  <div id="lesson-examples" class="examples-list">
+                    <!-- Dynamic content -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="lesson-sidebar">
+                <!-- COMMON ERRORS -->
+                <div class="content-card error-card">
+                  <h3>⚠️ Lỗi thường gặp</h3>
+                  <div id="lesson-common-errors" class="rich-text">
+                    <!-- Dynamic content -->
+                  </div>
+                </div>
+
+                <!-- TIPS & KEYWORDS -->
+                <div class="content-card tips-card">
+                  <h3>💡 Mẹo ghi nhớ nhanh</h3>
+                  <div id="lesson-tips" class="rich-text">
+                    <!-- Dynamic content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <div class="practice-level-panel" id="practice-level-panel" hidden>
+              <div class="practice-level-copy">
+                <strong>Mức luyện Bài 16</strong>
+                <span id="practice-level-count">Bắt đầu với nhóm dễ trước.</span>
+              </div>
+              <div class="practice-level-options" id="practice-level-options">
+                <button class="practice-level-btn active" data-level="easy">Dễ</button>
+                <button class="practice-level-btn" data-level="medium">Trung bình</button>
+                <button class="practice-level-btn" data-level="hard">Khó</button>
+                <button class="practice-level-btn" data-level="all">Tổng hợp</button>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-large" id="btn-start-practice">
+              ⚡ Luyện tập bài học này
+            </button>
+          </div>
+        </section>
+
+        <!-- SCREEN 2: QUIZ INTERACTIVE INTERFACE -->
+        <section id="screen-quiz" class="app-screen">
+          <div class="quiz-header">
+            <div class="quiz-meta">
+              <span id="quiz-title-display">Luyện tập: Bài 1</span>
+              <span id="quiz-question-counter">Câu 1/10</span>
+            </div>
+            <div class="quiz-progress-bar">
+              <div
+                class="quiz-progress-fill"
+                id="quiz-progress-fill-bar"
+                style="width: 0%"
+              ></div>
+            </div>
+            <button
+              class="btn-close-quiz"
+              id="btn-exit-quiz"
+              title="Thoát luyện tập"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="quiz-content-wrapper">
+            <div class="quiz-card">
+              <!-- Question Content -->
+              <div class="question-container">
+                <div id="quiz-question-text" class="question-text">
+                  <!-- Question with blanks -->
+                </div>
+                <div id="quiz-input-area" class="input-area">
+                  <!-- Multiple Choice or Fill-in-the-blank input -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FEEDBACK PANEL (Shows result of checking) -->
+          <div class="feedback-panel" id="feedback-panel">
+            <div class="feedback-container">
+              <div class="feedback-status-row">
+                <span class="feedback-icon" id="feedback-icon"></span>
+                <h3 id="feedback-title">Chính xác!</h3>
+              </div>
+
+              <div class="feedback-detail-box" id="feedback-detail-box">
+                <p class="rule-violation-tag" id="feedback-rule-tag"></p>
+                <div
+                  class="correct-sentence"
+                  id="feedback-correct-sentence"
+                ></div>
+                <div class="sentence-translation-small" id="feedback-translation"></div>
+                <div class="explanation-text" id="feedback-explanation"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-footer">
+            <button class="btn btn-secondary" id="btn-quiz-skip">Bỏ qua</button>
+            <button class="btn btn-primary" id="btn-quiz-action" disabled>
+              Kiểm tra
+            </button>
+          </div>
+        </section>
+
+        <!-- SCREEN 3: TEST SETUP -->
+        <section id="screen-test-setup" class="app-screen">
+          <div class="screen-header">
+            <div class="header-path" id="test-setup-path">Chương 3 / Kiểm tra tổng hợp</div>
+            <h2>Bắt đầu kiểm tra tổng hợp</h2>
+          </div>
+
+          <div class="scroll-container">
+            <div class="setup-container">
+              <div class="content-card">
+                <h3>📝 Cấu hình bài kiểm tra</h3>
+                <p id="test-setup-desc">
+                  Bài kiểm tra sẽ lấy ngẫu nhiên các câu hỏi trong ngân hàng
+                  500+ câu hỏi thuộc cả hai thì Present Simple và Present
+                  Continuous. Hệ thống sẽ thống kê chi tiết tỷ lệ làm đúng trên
+                  từng quy tắc ngữ pháp để chẩn đoán điểm mạnh/yếu của bạn.
+                </p>
+
+                <div class="form-group">
+                  <label class="form-label">Chọn số lượng câu hỏi:</label>
+                  <div class="num-selector">
+                    <label class="radio-card">
+                      <input
+                        type="radio"
+                        name="test-questions"
+                        value="20"
+                        checked
+                      />
+                      <div class="radio-card-content">
+                        <span class="num">20</span>
+                        <span class="desc">Câu hỏi (Nhanh)</span>
+                      </div>
+                    </label>
+
+                    <label class="radio-card">
+                      <input type="radio" name="test-questions" value="30" />
+                      <div class="radio-card-content">
+                        <span class="num">30</span>
+                        <span class="desc">Câu hỏi (Khuyên dùng)</span>
+                      </div>
+                    </label>
+
+                    <label class="radio-card">
+                      <input type="radio" name="test-questions" value="50" />
+                      <div class="radio-card-content">
+                        <span class="num">50</span>
+                        <span class="desc">Câu hỏi (Toàn diện)</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group select-rules-group">
+                  <label class="form-label">Phạm vi kiểm tra bao gồm:</label>
+                  <ul class="rules-list-preview" id="test-setup-rules">
+                    <li><code>am/is/are</code> - Chia động từ To Be</li>
+                    <li><code>do/does</code> - Trợ động từ trong câu hỏi</li>
+                    <li><code>don't/doesn't</code> - Trợ động từ phủ định</li>
+                    <li>
+                      <code>have/has</code> - Động từ sở hữu và bất quy tắc
+                    </li>
+                    <li><code>s/es</code> - Chia động từ ngôi thứ 3 số ít</li>
+                    <li>
+                      <code>V-ing</code> - Dạng động từ thêm -ing & chính tả
+                    </li>
+                  </ul>
+                </div>
+
+                <button
+                  class="btn btn-primary btn-large btn-full-width"
+                  id="btn-start-test"
+                >
+                  🚀 Bắt đầu làm bài kiểm tra
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN 4: TEST RESULTS -->
+        <section id="screen-test-result" class="app-screen">
+          <div class="screen-header">
+            <div class="header-path">Kết quả kiểm tra</div>
+            <h2>Báo cáo chẩn đoán kết quả</h2>
+          </div>
+
+          <div class="scroll-container">
+            <div class="results-layout">
+              <!-- OVERALL SCORE CARD -->
+              <div class="result-primary-row">
+                <div class="content-card result-summary-card">
+                  <div class="score-circle">
+                    <span class="score-num" id="result-score">24/30</span>
+                    <span class="score-percent" id="result-percent">80%</span>
+                  </div>
+                  <div class="score-text">
+                    <h3 id="result-message">Kết quả rất tốt!</h3>
+                    <p id="result-stat-details">
+                      Bạn đã trả lời đúng 24 câu hỏi và sai 6 câu hỏi trong tổng
+                      số 30 câu.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- DIAGNOSTIC BAR CHART -->
+                <div class="content-card diagnostic-card">
+                  <h3>📊 Chẩn đoán theo quy tắc ngữ pháp</h3>
+                  <p class="section-hint">
+                    Tỷ lệ trả lời chính xác trên từng quy tắc đã kiểm tra:
+                  </p>
+
+                  <div class="diagnostic-bars" id="diagnostic-bars-container">
+                    <!-- Dynamic diagnostic bars will be rendered here -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- ACADEMIC RECOMMENDATION -->
+              <div
+                class="content-card recommendation-card"
+                id="recommendation-card"
+              >
+                <h3>💡 Lời khuyên học tập</h3>
+                <div id="academic-recommendation" class="rich-text">
+                  <!-- Diagnostic recommendations -->
+                </div>
+              </div>
+
+              <!-- DETAILED MISTAKES REVIEW -->
+              <div
+                class="content-card mistakes-card"
+                id="mistakes-review-container"
+              >
+                <h3>📝 Xem lại các câu trả lời sai</h3>
+                <p class="section-hint">
+                  Dưới đây là các câu bạn đã trả lời sai trong bài kiểm tra. Hãy
+                  phân tích lý do sai để cải thiện.
+                </p>
+
+                <div class="mistakes-list" id="mistakes-list">
+                  <!-- List of incorrect items -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <button class="btn btn-secondary" id="btn-result-back-home">
+              Quay lại bài học
+            </button>
+            <button class="btn btn-primary" id="btn-result-retry">
+              Luyện tập lại bài test
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- CUSTOM CONFIRM MODAL -->
+    <div id="custom-confirm-modal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Xác nhận</h3>
+        </div>
+        <div class="modal-body">
+          <p id="confirm-modal-message">
+            Bạn có chắc chắn muốn thực hiện hành động này?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-confirm-cancel" class="btn btn-secondary">
+            Hủy bỏ
+          </button>
+          <button
+            id="btn-confirm-ok"
+            class="btn btn-primary btn-danger-gradient"
+          >
+            Đồng ý
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script src="data/unit1/lessons.js"></script>
+    <script src="data/unit1/questions.js"></script>
+    <script src="data/unit2/lessons.js"></script>
+    <script src="data/unit2/irregular_verbs_data.js"></script>
+    <script src="data/unit2/questions.js"></script>
+    <script src="data/unit3/lessons.js"></script>
+    <script src="data/unit3/questions.js"></script>
+    <script src="data/unit4/lessons.js"></script>
+    <script src="data/unit4/questions.js"></script>
+    <script src="data/unit5/lessons.js"></script>
+    <script src="data/unit5/questions.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
